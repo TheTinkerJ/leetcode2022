@@ -1,6 +1,7 @@
 package org.example.leetcode;
 
 public class T26 {
+
     public ListNode rotateRight(ListNode head, int k) {
         int length = size(head);
         if(length <= 1){

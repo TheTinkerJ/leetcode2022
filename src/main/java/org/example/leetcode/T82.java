@@ -1,6 +1,31 @@
 package org.example.leetcode;
 
 public class T82 {
+
+    public ListNode deleteDuplicates0419(ListNode head){
+        ListNode dummy = new ListNode(-101,head);
+        ListNode fast = head;
+        ListNode slow = dummy;
+        while(fast!=null && fast.next!=null){
+            if(fast.val == fast.next.val){
+                int x = fast.val;
+                while(fast!=null && fast.val == x){
+                    fast = fast.next;
+                }
+            }else{
+                slow.next = fast;
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+        if(fast!=null){
+            slow.next = fast;
+        }else{
+            slow.next = null;
+        }
+        return dummy.next;
+    }
+
     public ListNode deleteDuplicatesV2(ListNode head) {
         ListNode dummy = new ListNode(-101,head);
         ListNode fast = head;
